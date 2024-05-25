@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:insert="~{base :: head}" />
+
+<body>
+  
+  <nav th:replace="~{base :: nav}"></nav>
+  <div>
+    <h1 th:text="${intestazione}">
+      <p th:text="${saluti}">
+  </div>
+  <footer th:insert="~{footer}"></footer>
+</body>
+
+</html>
