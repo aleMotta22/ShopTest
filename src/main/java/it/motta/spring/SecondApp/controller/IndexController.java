@@ -13,7 +13,7 @@ public class IndexController {
     public String getWelcome(Model model) {
         model.addAttribute("intestazione", "Benvenuti nel sito aphaShop");
         model.addAttribute("saluti", "Seleziona i prodotti da acquistrare");
-        return "index";
+        return "welcome";
     }
 
     @GetMapping("/index")
