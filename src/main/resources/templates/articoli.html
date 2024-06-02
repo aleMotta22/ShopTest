@@ -1,0 +1,67 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:insert="~{base :: head}" />
+
+<body>
+  <nav th:replace="~{base :: nav}"></nav>
+  <div>
+    <section class="container" th:if="${#lists.size(Articoli)}">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h3  class="page-title" >Risultati Ricerca: Trovati
+            <span th:text="${NumArt}"></span>   Articoli</h3>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div id="rep" class="datafilter">
+            <label>
+              Pagine:
+              <select name="numpage" aria-controls="sample_1" class="form-control input-sm input-xsmall input-inline">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="-1">Tutti</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <table id="articoli" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Riga</th>
+              <th>CodArt</th>
+              <th>Descrizione</th>
+              <th>Peso(KG/LT)</th>
+              <th>Prezzo</th>
+              <th>Categoria</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tfoot>
+          </tfoot>
+          <tbody th:each="articolo : ${Articoli}">
+
+            <tr>
+              <td th:text="${articolo.riga}"></td>
+              <td th:text="${articolo.codArt}"></td>
+              <td th:text="${articolo.descrizione}"></td>
+              <td><span th:text="${#numbers.formatDecimal(articolo.pesoNetto, 1, 'COMMA', 3, 'POINT')}"></span>
+              </td>
+              <td><span th:text="${#numbers.formatDecimal(articolo.prezzo, 1, 'COMMA', 2, 'POINT')}"></span></td>
+            
+          <!--     <td>
+                <a th:href="@{/articoli/infoart/${articolo.codArt}} /> " class="btn btn-primary">
+                  <span class="oi oi-plus"></span> Dettaglio </a>
+              </td> -->
+            </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <div th:unless="${#lists.size(Articoli)}">
+      <p>Nessun articolo trovato.</p>
+    </div>
+  </div>
+  <footer th:insert="~{footer}"></footer>
+</body>
+
+</html>

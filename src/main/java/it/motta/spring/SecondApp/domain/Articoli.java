@@ -5,13 +5,13 @@ import java.sql.Date;
 
 public class Articoli implements Serializable {
 
-    
+    private int riga;
     private String codArt;
     private String descrizione;
     private String um;
     private String codStat;
     private int pzCart;
-    private double pesoNetto;
+    private double pesoNetto,prezzo;
     private int idIva;
     private String idStatoArt;
     private Date dataCreazione;
@@ -100,6 +100,20 @@ public class Articoli implements Serializable {
         this.idFamAss = idFamAss;
     }
 
+    public int getRiga() {
+        return riga;
+    }
 
+    public void setRiga(int riga) {
+        this.riga = riga;
+    }
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(double prezzo) {
+        this.prezzo = prezzo;
+    }
 
 }
